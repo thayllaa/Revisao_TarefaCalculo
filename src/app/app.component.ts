@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   option = 0;
-  name = 'Tarefa II';
+  name = 'Cálculo de Amortização';
 }
