@@ -1,2 +1,16 @@
-<app-price></app-price>
+<hello name="{{ name }}"></hello>
+<p> Escolha uma ação: </p><br>
+
+<input type="radio" [(ngModel)]="option" [value]="1"/>Armotização
+<input type="radio" [(ngModel)]="option" [value]="2"/>Tabela Price
+
+<ng-container *ngIf="option == 1">
 <app-amortizacao></app-amortizacao>
+</ng-container>
+
+<ng-container *ngIf="option == 2">
+<app-price></app-price>
+</ng-container>
+
+
+
