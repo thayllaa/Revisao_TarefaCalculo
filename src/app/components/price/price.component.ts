@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-price',
-  standalone: true,
   templateUrl: './price.component.html',
   styleUrls: ['./price.component.css'],
 })

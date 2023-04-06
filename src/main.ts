@@ -1,17 +1,16 @@
-import 'zone.js/dist/zone';
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { PriceComponent } from './app/components/price/price.component';
-import { AmortizacaoComponent } from './app/components/amortizacao/amortizacao.component';
+import './polyfills';
 
-@Component({
-  selector: 'my-app',
-  standalone: true,
-  imports: [CommonModule, PriceComponent, AmortizacaoComponent],
-  template: ``,
-})
-export class App {
-}
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-bootstrapApplication(App);
+import { AppModule } from './app/app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
+  // Ensure Angular destroys itself on hot reloads.
+  if (window['ngRef']) {
+    window['ngRef'].destroy();
+  }
+  window['ngRef'] = ref;
+
+  // Otherwise, log the boot error
+}).catch(err => console.error(err));
