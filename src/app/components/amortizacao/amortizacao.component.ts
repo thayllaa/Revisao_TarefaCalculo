@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-amortizacao',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./amortizacao.component.css']
 })
 export class AmortizacaoComponent implements OnInit {
+  @Input() capital: string;
+  @Input() residual: string;
+  @Input() tempo: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getAmortizacao(){
+    return (Number(this.capital) - Number(this.residual)) / Number(this.tempo);
   }
 
 }
